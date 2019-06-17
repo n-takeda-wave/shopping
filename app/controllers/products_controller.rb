@@ -18,6 +18,22 @@ class ProductsController < ApplicationController
       render :new
     end
   end
+  
+  def edit
+    @product = Product.find(params[:id])
+  end
+  
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update(product_params)
+      flash[:success] = '正常に更新されました'
+      redirect_to products_url
+    else
+      flash.now[:danger] = '更新に失敗しました'
+      render :edit
+    end
+  end
 
   private
 

@@ -1,0 +1,33 @@
+<div class="text-center">
+  <h1>商品情報の編集</h1>
+</div>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+    <%= form_for(@product) do |f| %>
+    
+      <div>
+        <%= f.label :image, "画像" %>
+　　    <%= f.file_field :image %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :title, '商品タイトル' %>
+        <%= f.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :capture, '商品の説明' %>
+        <%= f.text_area :capture, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :price, '価格' %>
+        <%= f.text_field :price, class: 'form-control' %>
+      </div>
+
+      <%= f.submit '登録', class: 'btn btn-primary btn-block' %>
+    <% end %>
+  </div>
+</div>

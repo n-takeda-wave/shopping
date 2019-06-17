@@ -14,10 +14,13 @@
             <%= product.title %>
           </div>
           <div>
-            <%= product.price %>
+            <%= product.price %><a>円</a>
           </div>
           <div>
             <%= product.capture %>
+          </div>
+          <div class="text-right">
+            <%= link_to "商品情報の編集", edit_product_path(product) %>
           </div>
         </div>
       </li>
