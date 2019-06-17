@@ -1,0 +1,27 @@
+<% if @products.any? %>
+  <ul class="media-list">
+    <% @products.each do |product| %>
+      <li class="media">
+        <div class="media-left">
+          <% if product.image? %>
+　　        <%= image_tag @product.image.thumb.url %>
+　        <% else %>
+　　        <%= image_tag 'noimage.gif' %>
+　      <% end %>
+        </div>
+        <div class="media-body">
+          <div>
+            <%= product.title %>
+          </div>
+          <div>
+            <%= product.price %>
+          </div>
+          <div>
+            <%= product.capture %>
+          </div>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @products %>
+<% end %>
