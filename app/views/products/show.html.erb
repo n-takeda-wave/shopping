@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-xs-10"> 
+  
+    <div class="text-center">
+　    <h3><%= @product.title %></h3>
+　  </div>
+　  
+    <div class="text-center">
+      <% if @product.image? %>
+　　    <%= image_tag .image.thumb.url %>
+　    <% else %>
+　　    <%= image_tag "noimage.png", :size => "500x500" %>
+　    <% end %>
+　  </div>
+　  
+　  <div class="text-center">
+      <h2><%= @product.price %>円</h2>
+    </div>
+    
+    <div class="text-center"> 
+      <%= @product.capture %>
+    </div>
+    
+    <div class="text-right">
+      <%= link_to "編集", edit_product_path(@product) %>
+      <%= link_to "削除", @product, method: :delete, data: { confirm: "本当に削除してよろしいですか？" } %> 
+    </div>
+  </div>
+</div>

@@ -4,24 +4,24 @@
       <li class="media">
         <div class="media-left">
           <% if product.image? %>
-　　        <%= image_tag @product.image.thumb.url %>
+　　        <%= image_tag product.image.thumb.url %>
 　        <% else %>
-　　        <%= image_tag 'noimage.gif' %>
-　      <% end %>
+　　        <%= image_tag "noimage.png", :size => "100x100" %>
+　        <% end %>
         </div>
         <div class="media-body">
           <div>
-            <%= product.title %>
+            <%= link_to product_path(product) do %>
+              <h4><%= product.title %></h4>
+            <% end %>
           </div>
           <div>
-            <%= product.price %><a>円</a>
+            <h3><%= product.price %>円</h3>
           </div>
           <div>
             <%= product.capture %>
           </div>
-          <div class="text-right">
-            <%= link_to "商品情報の編集", edit_product_path(product) %>
-          </div>
+          
         </div>
       </li>
     <% end %>

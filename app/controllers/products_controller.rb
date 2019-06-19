@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
     @products = Product.all.page(params[:page])
   end
   
+  def show
+    @product = Product.find_by(params[:id])
+  end
+  
   def new
     @product = Product.new
   end
@@ -33,6 +37,14 @@ class ProductsController < ApplicationController
       flash.now[:danger] = '更新に失敗しました'
       render :edit
     end
+  end
+  
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    
+    flash[:success] = "正常に削除されました"
+    redirect_to products_url
   end
 
   private
