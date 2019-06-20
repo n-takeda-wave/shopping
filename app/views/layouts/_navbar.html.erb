@@ -16,6 +16,14 @@
           <li><%= link_to '商品一覧', products_path %></li>
         </ul>
       </div>
+      
+      <div class="text-center"> <!-- 検索フォーム -->
+        <div class="text-muted"><p>商品を検索</p></div>
+        <%= form_tag(products_path, :method => "get") do %>
+          <%= text_field_tag :search %>
+          <%= submit_tag "検索", :title => nil %>
+        <% end %>  
+      </div>
     </div>
   </nav>
 </header>

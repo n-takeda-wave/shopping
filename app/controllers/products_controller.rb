@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.page(params[:page])
+    @products = Product.search(params[:search]).page(params[:page])
   end
   
   def show
@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
     flash[:success] = "正常に削除されました"
     redirect_to products_url
   end
-
+  
   private
 
   def product_params
