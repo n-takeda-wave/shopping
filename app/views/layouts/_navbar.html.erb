@@ -12,8 +12,17 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to '商品の登録', new_product_path %></li>
-          <li><%= link_to '商品一覧', products_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to '商品の登録', new_product_path %></li>
+            <li><%= link_to '商品一覧', products_path %></li>
+            <li><%= link_to '店舗一覧', stores_path %></li>
+            <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to '商品一覧', products_path %></li>
+            <li><%= link_to '店舗一覧', stores_path %></li>
+            <li><%= link_to '店舗新規登録', new_store_path %></li>
+            <li><%= link_to '店舗アカウントにログイン', login_path %></li>
+          <% end %>
         </ul>
       </div>
       
