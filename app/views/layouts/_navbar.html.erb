@@ -1,5 +1,5 @@
 <header>
-  <nav class="navbar navbar-inverse navbar-static-top">
+  <nav class="navbar navbar-static-top" style="background-color:#e0e0e0;">
     <div class="container">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
@@ -10,6 +10,7 @@
         </button>
         <a class="navbar-brand" href="/">Shopping</a>
       </div>
+      
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -26,8 +27,8 @@
         </ul>
       </div>
       
-      <div class="text-center"> <!-- 検索フォーム -->
-        <div class="text-muted"><p>商品を検索</p></div>
+    <div class="text-center"> <!-- 検索フォーム -->
+      <div class="text-muted"><p>商品を検索</p></div>
         <%= form_tag(products_path, :method => "get") do %>
           <%= text_field_tag :search %>
           <%= submit_tag "検索", :title => nil %>

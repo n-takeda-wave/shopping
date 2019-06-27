@@ -1,13 +1,11 @@
 <% if @stores.any? %>
   <ul class="media-list">
     <% @stores.each do |store| %>
-      <li class="media">
-        <div class="media-body">
-          <div>
-            <%= link_to store_path(store) do %>
-              <h4><%= store.name %></h4>
-            <% end %>
-          </div>
+      <li>
+        <div>
+          <%= link_to store_path(store) do %>
+            <h4>・<%= store.name %></h4>
+          <% end %>
         </div>
       </li>
     <% end %>
